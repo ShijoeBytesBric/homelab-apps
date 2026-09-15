@@ -28,6 +28,10 @@ spec:
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true
+          ports:
+            - name: ssh
+              containerPort: 22
+              protocol: TCP
           resources:
             requests:
               cpu: 100m
