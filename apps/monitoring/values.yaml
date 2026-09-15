@@ -1,0 +1,50 @@
+---
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+  hosts:
+    - monitoring.<your-domain>
+  paths:
+    - /
+  pathType: Prefix
+
+grafana:
+  adminPassword: ""
+  ingress:
+    enabled: false
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+prometheus:
+  prometheusSpec:
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+    retention: 15d
+    storageSpec:
+      volumes:
+        - name: data
+          persistentVolume:
+            claimName: monitoring-prometheus-data
+  ingress:
+    enabled: false
+
+alertmanager:
+  enabled: true
+  # No alert routes configured in v1 — see docs/PLAN.md
+
+kubeStateMetrics:
+  enabled: true
+nodeExporter:
+  enabled: true
