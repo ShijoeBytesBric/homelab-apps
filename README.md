@@ -1,4 +1,4 @@
-# HomeLabCluster
+# homelab-apps
 
 Desired state of the HomeLab Kubernetes cluster — app manifests synced by ArgoCD.
 
@@ -7,7 +7,7 @@ This repo holds the actual Kubernetes manifests that ArgoCD deploys into the clu
 ## Structure
 
 ```
-HomeLabCluster/
+homelab-apps/
 ├── apps/                    # Deployable app manifests (what ArgoCD syncs)
 │   ├── jellyfin/
 │   │   ├── namespace.yaml
@@ -44,7 +44,7 @@ HomeLabCluster/
 ## Relationship to homelab-git-mgmt
 
 - `homelab-git-mgmt` (https://github.com/ShijoeBytesBric/homelab-git-mgmt) = ArgoCD's config. Holds the `AppProject`, `Application` CRs, RBAC roles, and CI. The `Application` CRs here point at paths in this repo (e.g. `apps/jellyfin/`), and ArgoCD pulls the manifests from here.
-- This repo (`HomeLabCluster`) = the cluster's desired state. What ArgoCD actually deploys.
+- This repo (`homelab-apps`) = the cluster's desired state. What ArgoCD actually deploys.
 
 ## SealedSecrets
 
