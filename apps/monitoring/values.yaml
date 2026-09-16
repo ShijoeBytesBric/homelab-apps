@@ -1,14 +1,6 @@
 ---
 ingress:
-  enabled: true
-  ingressClassName: nginx
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-  hosts:
-    - monitoring.<your-domain>
-  paths:
-    - /
-  pathType: Prefix
+  enabled: false   # Gateway API HTTPRoute handles external access (see docs/gateway-api.md and apps/monitoring/httproute.yaml)
 
 grafana:
   adminPassword: ""
