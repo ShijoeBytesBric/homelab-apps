@@ -10,6 +10,8 @@ spec:
   parentRefs:
     - name: homelab-gateway
       namespace: traefik
+      group: gateway.networking.k8s.io
+      kind: Gateway
   hostnames:
     - "jellyfin.local"
   rules:
@@ -20,3 +22,6 @@ spec:
       backendRefs:
         - name: jellyfin
           port: 80
+          group: ""
+          kind: Service
+          weight: 1
