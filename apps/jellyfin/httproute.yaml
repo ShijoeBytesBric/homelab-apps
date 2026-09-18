@@ -11,7 +11,7 @@ spec:
     - name: homelab-gateway
       namespace: traefik
   hostnames:
-    - "jellyfin.<your-domain>"
+    - "jellyfin.local"
   rules:
     - matches:
         - path:
