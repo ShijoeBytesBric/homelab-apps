@@ -24,7 +24,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: openwrt
-          image: openwrt/rootfs:23.05.0
+          image: openwrt/rootfs:x86-64-openwrt-24.10
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true
